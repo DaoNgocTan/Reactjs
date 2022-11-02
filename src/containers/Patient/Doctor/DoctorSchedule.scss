@@ -3,6 +3,8 @@
     height: 100%;
 
     .all-schedule{
+    font-size: 18px;
+
         select{
             border-bottom: 1px solid #ddd;
             border-top: none;
@@ -24,7 +26,8 @@
         .text-calendar{
             margin: 10px 0;
             color: #333;
-
+            font-size: 18px;
+            
             span{
                 text-transform: uppercase;
                 margin-left: 5px;
