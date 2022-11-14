@@ -1,7 +1,7 @@
 {
     "homeheader": {
-        "specialty": " Medical specialty",
-        "searchdoctor": " Find a doctor by specialty",
+        "specialty": " Service",
+        "searchdoctor": " Find a doctor by service",
         "health-facility": "Health facilities",
         "select-room": "Choose hospital clinic",
         "doctor": "Doctor",
@@ -14,7 +14,7 @@
     "banner": {
         "title1": "YOUR BRIGHT SMILE",
         "title2": "LEADING TO A EXCITING LIFE STYLE",
-        "child1": "Specialized examination",
+        "child1": "Service",
         "child2": "Remote examination",
         "child3": "General examination",
         "child4": "Medical test",
@@ -26,8 +26,8 @@
             "manage-user": "Users System",
             "manage-doctor": "Manage Doctors",
             "manage-admin": "Manage Admin",
-            "crud": "CRUD User",
-            "crud-redux": "CRUD Redux",
+            "crud": "Manage User with Admin",
+            "crud-redux": "Manage User",
             "clinic": "Clinics",
             "manage-clinic": "Manage Clinics",
             "specialty": " Specialties",
@@ -85,17 +85,17 @@
             "hide-price": "Hide price list"
         },
         "booking-modal": {
-            "title": "Information to book a medical appointment",
+            "title": "SIGN UP FOR CONSULTATION",
             "fullName": "Fullname",
             "phoneNumber": "Phone Number",
             "email": "Email",
             "address": "Address",
-            "reason": "Reason for medical examination",
+            "reason": "Consulting Needs ",
             "birthday": "Date of birth",
             "gender": "Genders ",
             "btnConfirm": "Confirm",
             "btnCancel": "Cancel",
-            "priceBooking": "Free booking",
+            "priceBooking": "Booking Information ",
             "price": "Price: "
         }
     },

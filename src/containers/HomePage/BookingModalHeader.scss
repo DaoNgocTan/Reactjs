@@ -26,6 +26,16 @@
                 color: whitesmoke;
             }
         }
+        .doctor-infor{
+            text-align: center;
+            font-size: 14px;
+            font-style: italic;
+            color: rgb(43, 170, 182);
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+
 
         .booking-modal-body{
             padding: 20px;
@@ -37,6 +47,9 @@
             }
     
         }
+        .row{
+            font-size: 17px;
+        }
 
         .booking-modal-footer{
             border-top: 1px solid #ccc;
@@ -45,6 +58,7 @@
             justify-content: flex-end;
             gap: 15px;
 
+
             button{
                 border: none;
                 outline: none;
@@ -52,12 +66,22 @@
                 border-radius: 3px;
             }
 
-            .btn-booking-confirm{
-                background-color: rgb(0, 255, 195);
+            .btn-booking-confirm1{
+                background-color:whitesmoke;
+                font-size: 17px;
+            }
+            .btn-booking-confirm1:hover{
+                background-color: rgb(129, 214, 160);
+                font-size: 17px;
             }
 
-            .btn-booking-cancel{
+            .btn-booking-cancel1{
                 background-color: whitesmoke;
+                font-size: 17px;
+            }
+            .btn-booking-cancel1:hover{
+                background-color: rgb(236, 82, 82);
+                font-size: 17px;
             }
         }
     }

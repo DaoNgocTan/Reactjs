@@ -1,27 +1,35 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { FormattedMessage } from 'react-intl';
-import './BookingModal.scss';
+import './BookingModalHeader.scss';
 import { Modal } from 'reactstrap';
-import ProfileDoctor from '../ProfileDoctor';
+import ProfileDoctor from '../Patient/Doctor/ProfileDoctor';
 import _ from 'lodash';
-import DatePicker from '../../../../components/Input/DatePicker';
-import * as actions from '../../../../store/actions';
-import { LANGUAGES } from '../../../../utils';
+import * as actions from '../../store/actions';
+import DatePicker from '../../components/Input/DatePicker';
+import { LANGUAGES } from '../../utils';
 import Select from 'react-select';
-import { postPatientBookAppointment } from '../../../../services/userService';
+import { postPatientBookAppointmentHeader } from '../../services/userService';
 import { toast } from "react-toastify";
 import moment from 'moment';
 import LoadingOverlay from 'react-loading-overlay';
+import { emitter } from '../../utils/emitter';
+import BookingModalSuccess from './BookingModalSuccess';
+import Navigator from '../../components/Navigator';
 
-
-class BookingModal extends Component {
+class BookingModalHeader extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
+            arrUsers: [],
+            isOpenModalUser: false,
+            isOpenModaEditlUser: false,
+            isOpenBookingRightNowModal: false,
+            // dataModal: {},
+            userEdit: {},
             fullName: '',
-            phoneNumber: '',
+            phonenumber: '',
             email: '',
             address: '',
             reason: '',
@@ -126,20 +134,20 @@ class BookingModal extends Component {
 
     handleConfirmBooking = async () => {
         this.setState({
-            isShowLoading: true
+            isShowLoading: true,
+            isOpenModalUser: true,
         })
-
         let date = new Date(this.state.birthday).getTime();
         let timeString = this.buildTimeBooking(this.props.dataTime);
         let doctorName = this.buildDoctorName(this.props.dataTime);
 
-        let res = await postPatientBookAppointment({
+        let res = await postPatientBookAppointmentHeader({
             fullName: this.state.fullName,
-            phoneNumber: this.state.phoneNumber,
+            phonenumber: this.state.phonenumber,
             email: this.state.email,
             address: this.state.address,
             reason: this.state.reason,
-            date: this.props.dataTime.date,
+            // date: this.props.dataTime.date,
             birthday: date,
             selectedGender: this.state.selectedGender.value,
             doctorId: this.state.doctorId,
@@ -150,15 +158,30 @@ class BookingModal extends Component {
         })
 
         this.setState({
-            isShowLoading: false
+            isShowLoading: false,
+            isOpenModalUser: false,
         })
 
         if (res && res.errCode === 0) {
             toast.success('Đặt lịch thành công !')
             this.props.closeBookingClose();
+            // this.props.isOpenModalUser();
+
         } else {
             toast.error('Đặt lịch thất bại !')
         }
+    }
+
+    handleBtnConfirm = () => {
+        this.setState({
+            isOpenModalUser: true,
+        })
+    }
+    BookingClose = () => {
+        this.setState({
+            isOpenModalUser: false,
+            // dataModal: {}
+        })
     }
 
 
@@ -166,12 +189,13 @@ class BookingModal extends Component {
 
     render() {
 
-        let { isOpenModal, closeBookingClose, dataTime } = this.props;
+        let { isOpenModal, closeBookingClose, dataTime, isOpenBookingRightNowModal, dataModal } = this.props;
         let doctorId = '';
         if (dataTime && !_.isEmpty(dataTime)) {
             doctorId = dataTime.doctorId
         }
         return (
+
             <LoadingOverlay
                 isOpen={isOpenModal}
                 className={'booking-modal-container'}
@@ -186,6 +210,7 @@ class BookingModal extends Component {
                 // backdrop={true}
                 >
                     <div className='booking-modal-content'>
+
                         <div className='booking-modal-header'>
                             <span className='left'>
                                 <img className='header-logo' />
@@ -198,13 +223,9 @@ class BookingModal extends Component {
                         </div>
                         <div className='booking-modal-body'>
                             <div className='doctor-infor'>
-                                <ProfileDoctor
-                                    doctorId={doctorId}
-                                    isShowDescriptionDoctor={false}
-                                    dataTime={dataTime}
-                                    isShowLinkDetail={false}
-                                    isShowPrice={true}
-                                />
+                                Vui lòng để lại thông tin, nhu cầu của quý khách.
+
+                                Nha Khoa MedicTeeths sẽ liên hệ đến Quý Khách trong thời gian sớm nhất.
                             </div>
                             <div className='price'>
                             </div>
@@ -223,7 +244,7 @@ class BookingModal extends Component {
                                         <FormattedMessage id="patient.booking-modal.phoneNumber" />
                                     </label>
                                     <input className='form-control'
-                                        value={this.state.phoneNumber}
+                                        value={this.state.phonenumber}
                                         onChange={(event) => this.handleOnchangeInput(event, 'phoneNumber')}
                                     />
                                 </div>
@@ -236,14 +257,14 @@ class BookingModal extends Component {
                                         onChange={(event) => this.handleOnchangeInput(event, 'email')}
                                     />
                                 </div>
-
                                 <div className='col-6 form-group'>
                                     <label>
-                                        <FormattedMessage id="patient.booking-modal.address" />
+                                        <FormattedMessage id="patient.booking-modal.gender" />
                                     </label>
-                                    <input className='form-control'
-                                        value={this.state.address}
-                                        onChange={(event) => this.handleOnchangeInput(event, 'address')}
+                                    <Select
+                                        value={this.state.selectedGender}
+                                        onChange={this.handleChangeSelect}
+                                        options={this.state.genders}
                                     />
                                 </div>
                                 <div className='col-12 form-group'>
@@ -255,35 +276,22 @@ class BookingModal extends Component {
                                         onChange={(event) => this.handleOnchangeInput(event, 'reason')}
                                     />
                                 </div>
-                                <div className='col-6 form-group'>
-                                    <label>
-                                        <FormattedMessage id="patient.booking-modal.birthday" />
-                                    </label>
-                                    <DatePicker
-                                        onChange={this.handleOnchangeDatePicker}
-                                        className='form-control'
-                                        value={this.state.birthday}
-                                    />
-                                </div>
-                                <div className='col-6 form-group'>
-                                    <label>
-                                        <FormattedMessage id="patient.booking-modal.gender" />
-                                    </label>
-                                    <Select
-                                        value={this.state.selectedGender}
-                                        onChange={this.handleChangeSelect}
-                                        options={this.state.genders}
-                                    />
-                                </div>
                             </div>
                         </div>
+                        <BookingModalSuccess
+                            isOpen={this.state.isOpenModalUser}
+                            // toggleFromParent={this.toggleUserModal}
+                            BookingClose={this.BookingClose}
+                        // dataModal={dataModal}
+
+                        />
                         <div className='booking-modal-footer'>
-                            <button className='btn-booking-confirm'
-                                onClick={() => this.handleConfirmBooking()}
+                            <button className='btn-booking-confirm1'
+                                onClick={() => this.handleBtnConfirm()}
                             >
                                 <FormattedMessage id="patient.booking-modal.btnConfirm" />
                             </button>
-                            <button className='btn-booking-cancel'
+                            <button className='btn-booking-cancel1'
                                 onClick={closeBookingClose}
                             >
                                 <FormattedMessage id="patient.booking-modal.btnCancel" />
@@ -293,7 +301,6 @@ class BookingModal extends Component {
                         </div>
 
                     </div>
-
                 </Modal>
             </LoadingOverlay>
         );
@@ -311,8 +318,9 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
+
         getGenders: () => dispatch(actions.fetchGenderStart()),
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(BookingModal);
+export default connect(mapStateToProps, mapDispatchToProps)(BookingModalHeader);

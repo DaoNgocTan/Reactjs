@@ -140,7 +140,7 @@ class UserManage extends Component {
                                 <th>Email</th>
                                 <th>First name</th>
                                 <th>Last name</th>
-                                <th>Address</th>
+                                <th>Phone Number</th>
                                 <th>Actions</th>
                             </tr>
 
@@ -150,7 +150,7 @@ class UserManage extends Component {
                                         <td>{item.email}</td>
                                         <td>{item.firstName}</td>
                                         <td>{item.lastName}</td>
-                                        <td>{item.address}</td>
+                                        <td>{item.phonenumber}</td>
                                         <td>
                                             <button className='btn-edit' onClick={() => this.handleEditUser(item)}><i className="fas fa-user-edit"></i></button>
                                             <button className='btn-delete' onClick={() => this.handleDeleteUser(item)}><i className="fas fa-trash-alt"></i></button>

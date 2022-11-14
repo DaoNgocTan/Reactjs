@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { FormattedMessage } from 'react-intl';
-import './RemedyModal.scss';
+import './BookingModalSuccess.scss';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap'
 import { toast } from "react-toastify"
 import moment from 'moment';
-import { CommonUtils } from '../../../utils'
+import BookingModalHeader from './BookingModalHeader';
 
-class RemedyModal extends Component {
+class BookingModalSuccess extends Component {
 
     constructor(props) {
         super(props);
@@ -17,45 +17,6 @@ class RemedyModal extends Component {
         }
     }
 
-
-    async componentDidMount() {
-        if (this.props.dataModal) {
-            this.setState({
-                email: this.props.dataModal.email
-            })
-        }
-
-    }
-
-    componentDidUpdate(prevProps, prevState, snapshot) {
-        if (this.props.dataModal !== prevProps.dataModal) {
-            this.setState({
-                email: this.props.dataModal.email
-            })
-        }
-    }
-
-    handleOnChangeEmail = (event) => {
-        this.setState({
-            email: event.target.value
-        })
-    }
-
-    handleOnChangeImage = async (event) => {
-        let data = event.target.files;
-        let file = data[0];
-        if (file) {
-            let base64 = await CommonUtils.getBase64(file);
-            this.setState({
-                imgBase64: base64
-            })
-        }
-
-    }
-
-    handleSendRemedy = () => {
-        this.props.sendRemedy(this.state)
-    }
 
 
     render() {
@@ -70,7 +31,7 @@ class RemedyModal extends Component {
             //backdrop={true}           
             >
                 <div className='modal-header'>
-                    <h5 className='modal-title'> YÊU CẦU GỬI HÓA ĐƠN ! </h5>
+                    <h5 className='modal-title'> ĐẶT LỊCH THÀNH CÔNG ! </h5>
                     <button type='button' className='close' aria-label="Close" onClick={closeRemedyModal}>
                         <span aria-hidden="true">x</span>
                     </button>
@@ -81,12 +42,6 @@ class RemedyModal extends Component {
                             <label> Email Khách hàng</label>
                             <input className='form-control' type='email' value={this.state.email}
                                 onChange={(event) => this.handleOnChangeEmail(event)}
-                            />
-                        </div>
-                        <div className='col-6 form-group'>
-                            <label> Chọn file Hóa đơn</label>
-                            <input className='form-control-file' type='file'
-                                onChange={(event) => this.handleOnChangeImage(event)}
                             />
                         </div>
 
@@ -113,4 +68,4 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(RemedyModal);
+export default connect(mapStateToProps, mapDispatchToProps)(BookingModalSuccess);

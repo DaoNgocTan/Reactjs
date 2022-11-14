@@ -68,6 +68,10 @@ const postPatientBookAppointment = (data) => {
     return axios.post('/api/patient-book-appointment', data)
 }
 
+const postPatientBookAppointmentHeader = (data) => {
+    return axios.post('/api/patient-book-appointment-header', data)
+}
+
 const postVerifyBookAppointment = (data) => {
     return axios.post('/api/verify-book-appointment', data)
 }
@@ -103,6 +107,11 @@ const postSendRemedy = (data) => {
     return axios.post(`/api/send-remedy`, data)
 }
 
+const postSendCancel = (data) => {
+    return axios.post(`/api/send-cancel`, data)
+}
+
+
 
 export {
     handleLoginApi, getAllUsers,
@@ -112,10 +121,12 @@ export {
     getDetailInforDoctor, saveBulkScheduleDoctor,
     getScheduleDoctorByDate, getExtraInforDoctorById,
     getProfileDoctorById, postPatientBookAppointment,
+    postPatientBookAppointmentHeader,
     postVerifyBookAppointment, createNewSpecialty,
     getAllSpecialty, getAllDetailSpecialtyById,
     createNewClinic, getAllClinic, getAllDetailClinicById,
-    getAllPatientForDoctor, postSendRemedy
+    getAllPatientForDoctor, postSendRemedy,
+    postSendCancel
 
 
 

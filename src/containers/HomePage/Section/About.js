@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { FormattedMessage } from 'react-intl';
-
+import './About.scss'
 
 class About extends Component {
 
@@ -9,28 +9,54 @@ class About extends Component {
 
 
         return (
-            <div className='section-share section-about'>
+            <div class="container-fluid py-5">
 
-                <div className='section-about-header'>
-                    Liều thuốc tinh thần đặc biệt từ MedicTeeths :3
-                </div>
-                <div className='section-about-content'>
-                    <div className='content-left'>
-                        <iframe width="100%" height="400" src="https://www.youtube.com/embed/7DLJzUPJli4" title="5 Lời Khuyên Cần Nhớ Trước Khi Niềng Răng || Nam Bui Vinalign" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-7 m-0 my-lg-5 pt-0 pt-lg-5 pr-lg-5">
+                            <h6 class="text-secondary text-uppercase font-weight-medium mb-3">Điểm Nổi Bật</h6>
+                            <h1 class="mb-4">Tại Sao Phải Chọn Chúng Tôi</h1>
+                            <p>Một nụ cười là khoảng cách ngắn nhất giữa hai tâm hồn. Nếu bạn chỉ có duy nhất một nụ cười hãy dành nụ cười đó cho những người bạn yêu thương.</p>
+                            <div class="row">
+                                <div class="col-sm-6 mb-4">
+                                    <h1 class="text-secondary" data-toggle="counter-up">3</h1>
+                                    <h5 class="font-weight-bold">Nhiều Năm Kinh Nghiệm</h5>
+                                </div>
+                                <div class="col-sm-6 mb-4">
+                                    <h1 class="text-secondary" data-toggle="counter-up">30</h1>
+                                    <h5 class="font-weight-bold">Bác Sĩ Giỏi</h5>
+                                </div>
+                                <div class="col-sm-6 mb-4">
+                                    <h1 class="text-secondary" data-toggle="counter-up">473</h1>
+                                    <h5 class="font-weight-bold">Độ Hài Lòng</h5>
+                                </div>
+                                <div class="col-sm-6 mb-4">
+                                    <h1 class="text-secondary" data-toggle="counter-up">850</h1>
+                                    <h5 class="font-weight-bold">Khách Hàng</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-5">
+                            <div class="d-flex flex-column align-items-center justify-content-center bg-secondary h-100 py-5 px-3">
+                                <i class="fa fa-5x fa-certificate text-white mb-5"></i>
+                                <h1 class="display-1 text-white mb-3">4.5/5</h1>
+                                <h1 class="text-white m-0">Đánh Giá</h1>
+                            </div>
+                        </div>
                     </div>
-                    <div className='content-right'>
-                        <p>
-                            Rất nhiều người trong chúng ta đi niềng răng mà bản thân vẫn chưa hiểu và nắm hết được cần chuẩn bị những gì trước khi thực hiện quá trình điều trị, dẫn đến khi đi điều trị cảm thấy hoang mang và lo lắng rằng bản thân có thực sự đang đi đúng hướng và lạc lỗi với những thông tin không chính xác của mọi người.
-                            Mình mong rằng khi xem hết video này, những lời khuyên trên sẽ giúp ích cho các bạn.
-                            1. Bạn cần xác định rõ mục tiêu đi niềng răng là gì ?
-                            2. Hãy tìm một địa chỉ nha khoa, bác sĩ phù hợp cho mình
-                            3. Cần phải có một quy trình khám và lập phác đồ điều trị tiêu chuẩn
-                            4. Đặt niềm tin vào bác sĩ điều trị.
-                        </p>
+                </div>
 
-                    </div>
-                </div>
-            </div >
+                <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+                <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+                <script src="lib/easing/easing.min.js"></script>
+                <script src="lib/waypoints/waypoints.min.js"></script>
+                <script src="lib/counterup/counterup.min.js"></script>
+                <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+                <script src="mail/jqBootstrapValidation.min.js"></script>
+                <script src="mail/contact.js"></script>
+                <script src="js/main.js"></script>
+
+            </div>
         );
     }
 

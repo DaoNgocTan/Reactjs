@@ -91,15 +91,15 @@ class DetailDoctor extends Component {
                     </div>
 
                     <div className='schedule-doctor'>
+
+                        <div className='content-right'>
+                            <DoctorExtraInfor doctorIdFromParent={this.state.currentDoctorId} />
+                        </div>
                         <div className='content-left'>
                             <DoctorSchedule
                                 doctorIdFromParent={this.state.currentDoctorId}
                             />
                         </div>
-                        <div className='content-right'>
-                            <DoctorExtraInfor doctorIdFromParent={this.state.currentDoctorId} />
-                        </div>
-
                     </div>
                     <div className='detail-infor-doctor'>
                         {detailDoctor && detailDoctor.Markdown && detailDoctor.Markdown.contentHTML

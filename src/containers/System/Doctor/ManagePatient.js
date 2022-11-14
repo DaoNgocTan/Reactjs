@@ -3,12 +3,13 @@ import { connect } from 'react-redux';
 import { FormattedMessage } from 'react-intl';
 import './ManagePatient.scss';
 import DatePicker from '../../../components/Input/DatePicker';
-import { getAllPatientForDoctor, postSendRemedy } from '../../../services/userService';
+import { getAllPatientForDoctor, postSendRemedy, postSendCancel } from '../../../services/userService';
 import moment from 'moment';
 import { LANGUAGES } from '../../../utils';
 import RemedyModal from './RemedyModal';
 import { toast } from 'react-toastify';
 import LoadingOverlay from 'react-loading-overlay';
+import ModalCancel from './ModalCancel';
 
 
 
@@ -20,6 +21,7 @@ class ManagePatient extends Component {
             currentDate: moment(new Date()).startOf('day').valueOf(),
             dataPatient: [],
             isOpenRemedyModal: false,
+            isOpenModalCancel: false,
             dataModal: {},
             isShowLoading: false
         }
@@ -75,10 +77,31 @@ class ManagePatient extends Component {
             dataModal: data
         })
     }
+    handleBtnCancel = (item) => {
+        let data = {
+            doctorId: item.doctorId,
+            patientId: item.patientId,
+            email: item.patientData.email,
+            timeType: item.timeType,
+            patientName: item.patientData.firstName
+        }
+
+        this.setState({
+            isOpenModalCancel: true,
+            dataModal: data
+        })
+    }
 
     closeRemedyModal = () => {
         this.setState({
             isOpenRemedyModal: false,
+            dataModal: {}
+        })
+    }
+
+    closeModalCancel = () => {
+        this.setState({
+            isOpenModalCancel: false,
             dataModal: {}
         })
     }
@@ -103,7 +126,7 @@ class ManagePatient extends Component {
             this.setState({
                 isShowLoading: false
             })
-            toast.success('Gửi toa thuốc thành công !');
+            toast.success('Gửi hóa đơn thành công !');
             this.closeRemedyModal();
             await this.getDataPatient();
         } else {
@@ -114,8 +137,40 @@ class ManagePatient extends Component {
         }
     }
 
+
+    sendCancel = async (dataChild) => {
+        let { dataModal } = this.state;
+        this.setState({
+            isShowLoading: true
+        })
+
+        let res = await postSendCancel({
+            email: dataChild.email,
+            doctorId: dataModal.doctorId,
+            patientId: dataModal.patientId,
+            timeType: dataModal.timeType,
+            language: this.props.language,
+            patientName: dataModal.patientName
+        });
+
+        if (res && res.errCode === 0) {
+            this.setState({
+                isShowLoading: false
+            })
+            toast.success('Hủy thành công !');
+            this.closeModalCancel();
+            await this.getDataPatient();
+        } else {
+            this.setState({
+                isShowLoading: false
+            })
+            toast.error('Lỗi !...........');
+        }
+    }
+
+
     render() {
-        let { dataPatient, isOpenRemedyModal, dataModal } = this.state;
+        let { dataPatient, isOpenRemedyModal, dataModal, isOpenModalCancel } = this.state;
         let { language } = this.props;
         return (
             <>
@@ -126,7 +181,7 @@ class ManagePatient extends Component {
                 >
                     <div className='manage-patient-container'>
                         <div className='m-p-title'>
-                            Quản lý lịch hẹn
+                            LỊCH HẸN CỦA BẠN
                         </div>
                         <div className='manage-patient-body row'>
                             <div className='col-4 form-group'>
@@ -146,7 +201,7 @@ class ManagePatient extends Component {
                                             <th>Họ và tên</th>
                                             <th>Địa chỉ</th>
                                             <th>Giới tính</th>
-                                            <th>Actions</th>
+                                            <th>Trạng thái</th>
                                         </tr>
                                         {dataPatient && dataPatient.length > 0 ?
                                             dataPatient.map((item, index) => {
@@ -165,6 +220,16 @@ class ManagePatient extends Component {
                                                             <button className='mp-btn-confirm'
                                                                 onClick={() => this.handleBtnConfirm(item)}> Xác nhận
                                                             </button>
+                                                            <button className='mp-btn-cancel'
+                                                                onClick={() => this.handleBtnCancel(item)}> Hủy
+                                                            </button>
+                                                            <ModalCancel
+                                                                isOpenModal={isOpenModalCancel}
+                                                                dataModal={dataModal}
+                                                                closeModalCancel={this.closeModalCancel}
+                                                                sendCancel={this.sendCancel}
+
+                                                            />
                                                         </td>
                                                     </tr>
                                                 )
@@ -186,6 +251,7 @@ class ManagePatient extends Component {
                         sendRemedy={this.sendRemedy}
 
                     />
+
 
                 </LoadingOverlay>
             </>

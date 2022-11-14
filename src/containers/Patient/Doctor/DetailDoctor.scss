@@ -6,8 +6,9 @@
         display: flex;
         margin: 0 100px;
         margin-top: 40px;
-
-
+        background-color: rgb(181, 232, 219);
+        border-radius: 50px;
+        margin-bottom: 40px;
         .content-left {
             width: 20%;
             background-size: cover;
@@ -46,7 +47,8 @@
         display: flex;
         padding: 50px 20px;
         min-height: 200px;
-
+        background-color: rgb(207, 228, 237);
+        border-radius: 50px;
         .content-left{
             width: 50%;
         }
@@ -67,6 +69,7 @@
         h2,
         h3{
             font-size: 20px;
+            
         }
         ul {
             margin-top: 20px;
