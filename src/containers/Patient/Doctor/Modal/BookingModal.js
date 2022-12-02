@@ -21,7 +21,7 @@ class BookingModal extends Component {
         super(props);
         this.state = {
             fullName: '',
-            phoneNumber: '',
+            phonenumber: '',
             email: '',
             address: '',
             reason: '',
@@ -135,7 +135,7 @@ class BookingModal extends Component {
 
         let res = await postPatientBookAppointment({
             fullName: this.state.fullName,
-            phoneNumber: this.state.phoneNumber,
+            phonenumber: this.state.phonenumber,
             email: this.state.email,
             address: this.state.address,
             reason: this.state.reason,
@@ -223,8 +223,8 @@ class BookingModal extends Component {
                                         <FormattedMessage id="patient.booking-modal.phoneNumber" />
                                     </label>
                                     <input className='form-control'
-                                        value={this.state.phoneNumber}
-                                        onChange={(event) => this.handleOnchangeInput(event, 'phoneNumber')}
+                                        value={this.state.phonenumber}
+                                        onChange={(event) => this.handleOnchangeInput(event, 'phonenumber')}
                                     />
                                 </div>
                                 <div className='col-6 form-group'>

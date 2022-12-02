@@ -11,13 +11,17 @@
 
     .add-new-specialty{
         .btn-save-specialty{
-
+            color: white;
             border: none;
-            background: orange;
+            background: rgb(52, 59, 201);
             padding: 8px 5px;
             min-width: 75px;
             border-radius: 3px;
             margin: 15px 0;
+        }
+        .btn-save-specialty:hover {
+            background-color: rgb(89, 223, 89);
+
         }
     }
 }

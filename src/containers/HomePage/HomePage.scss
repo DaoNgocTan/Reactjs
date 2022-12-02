@@ -16,7 +16,8 @@
 .slick-prev:before,
 .slick-next:before {
     font-family: FontAwesome !important;
-    color: red !important;
+    color: gray !important;
+    font-weight: 600;
 
     // content: "\f060" !important;
 }
@@ -43,72 +44,91 @@
 }
 
 
-
-.section-share {
-    background: rgba($color: rgb(190, 228, 242), $alpha: 1.0);
-    border-top: 2px solid rgb(213, 235, 244);
-    &.section-specialty {
-        background: rgba($color: rgb(190, 228, 242), $alpha: 1.0);
-
-        border-top: 2px solid rgb(213, 235, 244);
-    }
-
-    &.section-outstanding-doctor {
-        background: rgba($color: rgb(190, 228, 242), $alpha: 1.0);
-
-        border-top: 2px solid rgb(213, 235, 244);
-    }
-
-    &.section-about {
-        height: 500px !important;
-        border-top: 1px solid rgb(213, 235, 244);
-        border-bottom: 1px solid rgb(213, 235, 244);
-    }
-
-    .section-body {
-        .section-customize {
-            div {
-                padding: 8px 10px;
-                font-size: 16px;
-                font-weight: 600;
+.homepage-total{
+    width: 100%;
+        height: 100%;
+        display: flex;
+    .homepage-left{
+        width: 60%;
+        .section-share {
+            // background: rgba($color: rgb(190, 228, 242), $alpha: 1.0);
+            background: rgba($color: white, $alpha: 1.0);
+        
+            border-top: 2px solid rgb(213, 235, 244);
+            &.section-specialty {
+                background: rgba($color: white, $alpha: 1.0);
+        
+                border-top: 2px solid rgb(213, 235, 244);
             }
-            .bg-image {
-                margin-left: 12px;
-                height: 150px;
-                width: 310px;
-                background-position: center center;
-                background-repeat: no-repeat;
-                background-size: cover;
-                background-color: #eee;
-
-                &.section-specialty {
-                    // background-image: url('../../assets/specialty/TinhCho11.jpg');
-                }
-
-                &.section-medical-facility {
-                    // background-image: url('../../assets/medical-facility/bo33.jpg');
-                    
-                }
-
-                &.section-outstanding-doctor {
-                    // background-image: url('../../assets/oustanding-doctor/nghiangu.jpg');
-                    width: 120px;
-                    height: 120px;
-                    border-radius: 50%;
-                }
-
-                &.section-handbook {
-                    
-                    background-image: url('../../assets/handbook/be_a_denist.jpg');
-                    
-                }
+        
+            &.section-outstanding-doctor {
+                background: rgba($color: white, $alpha: 1.0);
+        
+                border-top: 2px solid rgb(213, 235, 244);
             }
-
+        
+            &.section-about {
+                height: 500px !important;
+                border-top: 1px solid rgb(213, 235, 244);
+                border-bottom: 1px solid rgb(213, 235, 244);
+            }
+        
+            .section-body {
+                .section-customize {
+                    div {
+                        padding: 8px 10px;
+                        font-size: 16px;
+                        font-weight: 600;
+                    }
+                    .bg-image {
+                        margin-left: 12px;
+                        height: 150px;
+                        width: 310px;
+                        background-position: center center;
+                        background-repeat: no-repeat;
+                        background-size: cover;
+                        background-color: #eee;
+                        border-radius: 10px;
+                        &.section-specialty {
+                            // background-image: url('../../assets/specialty/TinhCho11.jpg');
+                        }
+        
+                        &.section-medical-facility {
+                            // background-image: url('../../assets/medical-facility/bo33.jpg');
+                            
+                        }
+        
+                        &.section-outstanding-doctor {
+                            // background-image: url('../../assets/oustanding-doctor/nghiangu.jpg');
+                            width: 120px;
+                            height: 120px;
+                            border-radius: 50%;
+                        }
+        
+                        &.section-handbook {
+                            
+                            background-image: url('../../assets/handbook/be_a_denist.jpg');
+                            
+                        }
+                    }
+        
+                }
+        
+        
+            }
         }
+    }
+    .homepage-right{
+        width: 40%;
+        display: flex;
+        background-color: white;
 
-
+        .news-container{
+            text-align: center;
+        }
     }
 }
+
 
 .section-share {
     height: 330px;
@@ -118,6 +138,7 @@
         margin: 0 100px;
         display: flex;
         flex-direction: column;
+        width: 50%;
 
         .section-header {
             height: 60px;
@@ -149,6 +170,9 @@
         }
 
     }
+    .section-new{
+        width: 50%;
+    }
 }
 
 .section-outstanding-doctor {
@@ -166,6 +190,8 @@
         .customize-border {
             border: 1px solid white;
             padding: 20px;
+            border: 1px solid gray;
+            border-radius: 10px;
         }
 
     }

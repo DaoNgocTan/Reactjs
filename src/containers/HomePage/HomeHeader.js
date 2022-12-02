@@ -82,6 +82,10 @@ class HomeHeader extends Component {
                                 </div>
 
                             </div>
+                            <div className='search'>
+                                <i className="fas fa-search"></i>
+                                <input type='text' placeholder='Tìm kiếm theo từ khóa ...     ' />
+                            </div>
                             <div className='right-content'>
 
 
@@ -105,7 +109,7 @@ class HomeHeader extends Component {
 
                                 <button className={language === LANGUAGES.VI ? "language-vi active" : 'language-vi'}
                                     onClick={() => this.changeLanguage(LANGUAGES.VI)}>
-                                    <img src="https://kimdental.vn/wp-content/themes/kimdental-child/assets/images/vietnam.svg" width="33" height="26" loading="lazy" />
+                                    <img className='img-edit' src="https://kimdental.vn/wp-content/themes/kimdental-child/assets/images/vietnam.svg" width="33" height="26" loading="lazy" />
 
                                 </button>
                                 <button className={language === LANGUAGES.EN ? "language-en active" : 'language-en'}
@@ -122,10 +126,7 @@ class HomeHeader extends Component {
                             <div className='content-up'>
                                 {/* <div className='title1'><FormattedMessage id="banner.title1" /></div> */}
                                 {/* <div className='title2'><FormattedMessage id="banner.title2" /> </div> */}
-                                <div className='search'>
-                                    <i className="fas fa-search"></i>
-                                    <input type='text' placeholder='Tìm kiếm theo từ khóa ...     ' />
-                                </div>
+
                             </div>
                             <div className='content-down'>
                                 {/* <div className='options'>

@@ -4,7 +4,10 @@
   padding:45px 0 20px;
   font-size:15px;
   line-height:24px;
-  color:whitesmoke;
+  color:white;
+}
+.discrip{
+  color: rgb(5, 5, 5);
 }
 .site-footer hr
 {
@@ -17,7 +20,7 @@
 }
 .site-footer h6
 {
-  color:whitesmoke;
+  color: white;
   font-size:16px;
   text-transform:uppercase;
   margin-top:5px;
@@ -26,11 +29,11 @@
 }
 .site-footer a
 {
-  color:whitesmoke;
+  color:white;
 }
 .site-footer a:hover
 {
-  color:whitesmoke;
+  color:gray;
   text-decoration:none;
 }
 .footer-links
@@ -44,11 +47,11 @@
 }
 .footer-links a
 {
-  color:whitesmoke
+  color:white
 }
 .footer-links a:active,.footer-links a:focus,.footer-links a:hover
 {
-  color:whitesmoke;
+  color:gray;
   text-decoration:none;
 }
 .footer-links.inline li
@@ -67,7 +70,7 @@
   margin-left:6px;
   margin-right:0;
   border-radius:100%;
-  background-color:whitesmoke
+  background-color:#bee4f2;
 }
 .copyright-text
 {
@@ -112,7 +115,7 @@
   font-size:13px
 }
 .social-icons a{
-  background-color:#eceeef;
+  background-color:white;
   color:#818a91;
   font-size:16px;
   display:inline-block;
@@ -128,8 +131,8 @@
 }
 .social-icons a:active,.social-icons a:focus,.social-icons a:hover
 {
-  color:#fff;
-  background-color:#29aafe
+  color:gray;
+  background-color:black;
 }
 .social-icons.size-sm a
 {
@@ -162,4 +165,7 @@
     margin-right:0;
     font-weight:600
   }
+}
+.row-update{
+  background-color: #005f9d;
 }

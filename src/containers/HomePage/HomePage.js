@@ -10,6 +10,7 @@ import HomeFooter from './HomeFooter';
 import './HomePage.scss';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import News from './News';
 
 
 class HomePage extends Component {
@@ -19,7 +20,7 @@ class HomePage extends Component {
             dots: false,
             isfinite: false,
             speed: 500,
-            slidesToShow: 4,
+            slidesToShow: 2,
             slidesToScroll: 1,
         };
 
@@ -28,18 +29,25 @@ class HomePage extends Component {
         return (
             <div>
                 <HomeHeader isShowBanner={true} />
-                <Specialty
-                    settings={settings}
-                />
-                <MedicalFacility
-                    settings={settings}
-                />
-                <OutstandingDoctor
-                    settings={settings}
-                />
-                <HandBook
-                    settings={settings}
-                />
+                <div className='homepage-total'>
+                    <div className='homepage-left'>
+                        <Specialty
+                            settings={settings}
+                        />
+                        <MedicalFacility
+                            settings={settings}
+                        />
+                        <OutstandingDoctor
+                            settings={settings}
+                        />
+                        {/* <HandBook
+                            settings={settings}
+                        /> */}
+                    </div>
+                    <div className='homepage-right'>
+                        <News />
+                    </div>
+                </div>
                 <About />
                 <HomeFooter />
             </div>

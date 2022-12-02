@@ -21,14 +21,20 @@
 
         .menu-group-name {
             line-height: 40px;
-            padding: 0 15px;
+            padding: 0 24px;
             border-right: 1px solid $border;
 
             &:first-child {
                 border-left: 1px solid $border;
             }
         }
-
+        .menu-group-name:hover{
+            
+            transform-origin: top;
+            z-index: -1;
+            transform: scaleX(0);
+            transition:  transform 2s;
+        }
         .menu-list {
             display: none;
             background-color: $bg-menu-color;
@@ -100,7 +106,7 @@
                 }
 
                 &:hover {
-                    background-color: darken($bg-menu-color, 3);
+                    background-color: skyblue;
 
                     .sub-menu-list {
                         display: block;

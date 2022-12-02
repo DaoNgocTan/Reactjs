@@ -29,7 +29,7 @@ class BookingModalHeader extends Component {
             // dataModal: {},
             userEdit: {},
             fullName: '',
-            phonenumber: '',
+            phoneNumber: '',
             email: '',
             address: '',
             reason: '',
@@ -143,7 +143,7 @@ class BookingModalHeader extends Component {
 
         let res = await postPatientBookAppointmentHeader({
             fullName: this.state.fullName,
-            phonenumber: this.state.phonenumber,
+            phonenumber: this.state.phoneNumber,
             email: this.state.email,
             address: this.state.address,
             reason: this.state.reason,
@@ -244,7 +244,7 @@ class BookingModalHeader extends Component {
                                         <FormattedMessage id="patient.booking-modal.phoneNumber" />
                                     </label>
                                     <input className='form-control'
-                                        value={this.state.phonenumber}
+                                        value={this.state.phoneNumber}
                                         onChange={(event) => this.handleOnchangeInput(event, 'phoneNumber')}
                                     />
                                 </div>
@@ -287,7 +287,7 @@ class BookingModalHeader extends Component {
                         />
                         <div className='booking-modal-footer'>
                             <button className='btn-booking-confirm1'
-                                onClick={() => this.handleBtnConfirm()}
+                                onClick={() => this.handleConfirmBooking()}
                             >
                                 <FormattedMessage id="patient.booking-modal.btnConfirm" />
                             </button>

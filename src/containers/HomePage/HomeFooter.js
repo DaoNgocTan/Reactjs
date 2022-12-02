@@ -12,7 +12,7 @@ class HomeFooter extends Component {
             <footer class="site-footer">
                 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
                 <div class="container">
-                    <div class="row">
+                    <div class="row row-update">
                         <div class="col-sm-12 col-md-6">
                             <h6>Về chúng tôi</h6>
                             <p class="text-justify">medicteeths.com <i>Trở thành doanh nghiệp trong lĩnh vực Nha khoa thẩm mỹ với chiến lược tập trung phát triển công nghệ đột phá.</i>Viện nha khoa MedicTeeth với hơn 5 năm kinh nghiệm được khách hàng yêu mến và tin cậy. Với thương hiệu MedicTeeth, chúng tôi tự hào là cơ sở khám chữa nha khoa uy tín và hiện đại tại Thành Phố Hồ Chí Minh.</p>
@@ -28,22 +28,19 @@ class HomeFooter extends Component {
                         </div>
 
                         <div class="col-xs-6 col-md-3">
-                            <h6>đường dẫn nhanh</h6>
+                            <h6>người thực hiện</h6>
                             <ul class="footer-links">
-                                <li><a href="#">About Us</a></li>
-                                <li><a href="#">Contact Us</a></li>
-                                <li><a href="#">Contribute</a></li>
-                                <li><a href="#">Privacy Policy</a></li>
-                                <li><a href="#">Sitemap</a></li>
+                                <li><a href="#">Đào Ngọc Tân</a></li>
+                                <li><a href="#">Nguyễn Minh Nghĩa</a></li>
                             </ul>
                         </div>
                     </div>
 
                 </div>
                 <div class="container">
-                    <div class="row">
+                    <div class="row row-update">
                         <div class="col-md-8 col-sm-6 col-xs-12">
-                            <p>&copy; 2023 MedicTeeths ♥
+                            <p className='discrip'>&copy; 2023 MedicTeeths ♥
                                 {/* <a target='_blank' href='https://www.instagram.com/__only.dntan/'>
                                     &#8594; Click Here &#8592;
                                 </a> */}

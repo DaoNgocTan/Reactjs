@@ -44,6 +44,7 @@ class Header extends Component {
 
         return (
             <div className="header-container">
+                <img class="header-logo" src="/static/media/logo.79838e53.png"></img>
                 {/* thanh navigator */}
                 <div className="header-tabs-container">
                     <Navigator menus={this.state.menuApp} />

@@ -10,7 +10,10 @@ class About extends Component {
 
         return (
             <div class="container-fluid py-5">
-
+                <div className='map-api'>
+                    <h1 class="text-map">Địa chỉ phòng khám</h1>
+                    <iframe width="1130" height="450" id="gmap_canvas" src="https://maps.google.com/maps?q=222%20b%C3%B9i%20%C4%91%C3%ACnh%20t%C3%BAy&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+                </div>
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-7 m-0 my-lg-5 pt-0 pt-lg-5 pr-lg-5">
